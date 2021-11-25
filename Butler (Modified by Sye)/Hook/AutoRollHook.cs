@@ -24,8 +24,7 @@ namespace Butler__Modified_by_Sye_.Hook
                 if (Int32.TryParse(Args[0].ToString(), out int num))
                 {
                     var item = new ItemInfo(AutoLootAPI.GetLootRollItemLink(num), num);
-                    Logging.Write(AutoLootAPI.GetLootRollItemLink(num));
-                    Main.checkThisItem(item);
+                    item.checkThisItem();
                 }
             }
             if (Event.ToString() == "CONFIRM_LOOT_ROLL")

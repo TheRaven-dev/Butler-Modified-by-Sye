@@ -55,6 +55,7 @@
     <Compile Include="Hook\Helpers.cs\AutoRollTypes.cs" />
     <Compile Include="Hook\Helpers.cs\ItemParse.cs" />
     <Compile Include="Hook\ItemInfo.cs" />
+    <Compile Include="ItemHelpers.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

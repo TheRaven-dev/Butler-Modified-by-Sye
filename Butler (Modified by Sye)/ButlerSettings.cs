@@ -8,59 +8,12 @@ using wManager.Wow.ObjectManager;
 
 
 
-public class ButlerBlackListSettings : Settings
-{
-	public ButlerBlackListSettings()
-	{
-		blackItems = new List<string>();
-		playerLevel = 0;
-	}
 
-	public static ButlerBlackListSettings CurrentSetting { get; set; }
-
-	public bool Save()
-	{
-		try { return Save(AdviserFilePathAndName("Butler", ObjectManager.Me.Name + ".Blacklist." + wManager.Wow.Helpers.Usefuls.RealmName)); }
-		catch (Exception e) { Logging.WriteDebug("Butler failed to save blacklist settings because of: " + e); return false; }
-	}
-
-	public static bool Load()
-	{
-		try
-		{
-			if (File.Exists(AdviserFilePathAndName("Butler", ObjectManager.Me.Name + ".Blacklist." + wManager.Wow.Helpers.Usefuls.RealmName)))
-			{
-				CurrentSetting = Load<ButlerBlackListSettings>(AdviserFilePathAndName("Butler", ObjectManager.Me.Name + ".Blacklist." + wManager.Wow.Helpers.Usefuls.RealmName));
-				return true;
-			}
-			CurrentSetting = new ButlerBlackListSettings();
-		}
-		catch (Exception e)
-		{
-			Logging.WriteDebug("Butler failed to load blacklist settings because of: " + e);
-		}
-		return false;
-	}
-
-	[Setting]
-	[Category("Blacklist Settings")]
-	[DisplayName("Blacklisted Items")]
-	[Description("Comma-separated ItemsIDs that missed to be equipped")]
-	public List<string> blackItems { get; set; }
-
-	[Setting]
-	[Category("Blacklist Settings")]
-	[DisplayName("Player level")]
-	[Description("Player level")]
-	public uint playerLevel { get; set; }
-}
 
 public class ButlerGlobalSettings : Settings
 {
 	public ButlerGlobalSettings()
 	{
-		knownAsDrink = "159,1179,1205,1645,1708,3772,5350,8766,22018,27860,28399,33444,33445,34062,35954,43513";
-		knownAsFood = "117,414,422,787,1707,2070,2287,3770,3771,3927,4536,4537,4538,4539,4540,4541,4542,4544,4592,4593,4594,4599,4601,4602,4656,8932,8950,8952,8953,8957,21552,27854,27855,27856,29363,29451,29450,33443,33449,33454,35948,35949,35950,35952,35953";
 		ItemValueOverrides = "2586:0,11508:0,12064:0";
 		pulseDelay = 3000;
 	}
@@ -97,18 +50,6 @@ public class ButlerGlobalSettings : Settings
 		}
 		return false;
 	}
-
-	[Setting]
-	[Category("Resting Settings")]
-	[DisplayName("Known as Manadrink")]
-	[Description("Comma-separated ItemsIDs of known Manadrinks to use")]
-	public string knownAsDrink { get; set; }
-
-	[Setting]
-	[Category("Resting Settings")]
-	[DisplayName("Known as Food")]
-	[Description("Comma-separated ItemIDs of known food to use")]
-	public string knownAsFood { get; set; }
 
 	[Setting]
 	[Category("Global Settings")]
