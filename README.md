@@ -1,5 +1,6 @@
-Created for creating the plugin goes to : Stauffenberg. 
-Created for making it work for auto roll goes to : Sye.
+Credit for creating the plugin goes to : Stauffenberg. 
+
+Credit for making it work for auto roll goes to : Sye.
 
 
 Known Bugs :
